@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto Primor</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .carrossel img {
+      width: 100%;
+      height: auto;
+    }
+
+    .destaque-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      padding: 40px;
+      gap: 40px;
+    }
+
+    .destaque-img {
+      flex: 1 1 45%;
+      max-width: 600px;
+    }
+
+    .destaque-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .carrossel.destaques {
+      flex: 1 1 50%;
+      max-width: 800px;
+    }
+
+    .retangulo-produto {
+      background: url('imagens/Rectangle 188.png') no-repeat center center;
+      background-size: contain;
+      width: 296px;
+      height: 324px;
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .retangulo-produto img {
+      max-width: 80%;
+      height: auto;
+    }
+
+    .retangulo-produto p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 900px) {
+      .destaque-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+      .destaque-img,
+      .carrossel.destaques {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+    }
+
+    /* Dropdown custom */
+    .menu-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 250px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .menu-container:hover .dropdown-content {
+      display: flex;
+      gap: 20px;
+    }
+
+    .dropdown-content .column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .dropdown-content img {
+      width: 100px;
+      height: auto;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="header">
+    <img src="imagens/HEADER.png" alt="Menu e Nome" style="width: 100%; display: block;" />
+    <div class="menu-container" style="position: absolute; top: 20px; left: 30%;">
+      <span style="font-weight: bold; cursor: pointer;">GUARDANAPOS</span>
+      <div class="dropdown-content">
+        <div class="column">
+          <a href="#">ALGODÃO ORGÂNICO</a>
+          <a href="#">ALGODÃO</a>
+          <a href="#">LISTRADO</a>
+          <a href="#">LINHO</a>
+          <a href="#">PONTO AJOUR</a>
+        </div>
+        <div class="column">
+          <a href="#">POLIÉSTER</a>
+          <a href="#">PETTY</a>
+          <a href="#">PERSONALIZADOS</a>
+          <a href="#">XADREZ</a>
+        </div>
+        <img src="imagens/image 11.png" alt="Imagem menu">
+      </div>
+    </div>
+  </section>
+
+  <section class="carrossel banner">
+    <div><img src="imagens/Juliana Listra Azul 1.png" alt="Banner 1" /></div>
+    <div><img src="imagens/Juliana Listra Azul 1.png" alt="Banner 2" /></div>
+  </section>
+
+  <section class="qualidades">
+    <img src="imagens/BARRA DE QUALIDADES.svg" alt="Barra de Qualidades" style="width: 100%;" />
+  </section>
+
+  <section class="destaque-container">
+    <div class="destaque-img">
+      <img src="imagens/table-with-romantic-ornaments 1.png" alt="Imagem Destaque" />
+    </div>
+    <div class="carrossel destaques">
+      <div class="retangulo-produto">
+        <img src="imagens/laura-7-7_2 1.png" alt="Guardanapos" />
+        <p>GUARDANAPOS</p>
+      </div>
+      <div class="retangulo-produto">
+        <img src="imagens/toalha2_2 1.png" alt="Mesa" />
+        <p>MESA</p>
+      </div>
+      <div class="retangulo-produto">
+        <img src="imagens/panos-copa 1.png" alt="Panos de Cozinha" />
+        <p>PANOS DE COZINHA</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="best-sellers">
+    <img src="imagens/BEST SELLERS.svg" alt="Best Sellers" style="width: 100%;" />
+  </section>
+
+  <section id="personalizados">
+    <img src="imagens/PERSONALIZADOS.svg" alt="Personalizados" style="width: 100%;" />
+  </section>
+
+  <script>
+    $(document).ready(function () {
+      $('.carrossel.banner').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: true
+      });
+
+      $('.carrossel.destaques').slick({
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        arrows: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+    });
+  </script>
+
+</body>
+</html>
+
